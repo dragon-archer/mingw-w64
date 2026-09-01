@@ -1,6 +1,7 @@
 # Temporary files
 *~
 .*
+!.clang-format
 
 # Compiled files
 *.o
