@@ -1,0 +1,31 @@
+BasedOnStyle: LLVM
+Language: Cpp
+
+ColumnLimit: 0
+
+PointerAlignment: Left
+
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterFunction: true
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
+
+AllowShortBlocksOnASingleLine: Empty
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Inline
+
+IndentPPDirectives: AfterHash
+AlignEscapedNewlines: DontAlign
+SkipMacroDefinitionBody: true
+
+AlignTrailingComments:
+  Kind: Leave
+BreakAdjacentStringLiterals: false
+FixNamespaceComments: false
+ReflowComments: Never
+SortIncludes: Never
+SortUsingDeclarations: Never
+
+InsertNewlineAtEOF: true
