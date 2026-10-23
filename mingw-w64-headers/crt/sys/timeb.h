@@ -14,9 +14,6 @@
 
 _CRT_BEGIN_C_HEADER
 
-#ifndef _TIMEB_DEFINED
-#define _TIMEB_DEFINED
-
   struct __timeb32 {
     __time32_t time;
     unsigned short millitm;
@@ -39,8 +36,6 @@ _CRT_BEGIN_C_HEADER
     short timezone;
     short dstflag;
   };
-
-#endif
 
   _CRTIMP void __cdecl _ftime64(struct __timeb64 *_Time);
   _CRTIMP void __cdecl _ftime32(struct __timeb32 *_Time);

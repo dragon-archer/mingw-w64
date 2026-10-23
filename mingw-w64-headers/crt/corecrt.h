@@ -505,14 +505,11 @@ typedef struct localeinfo_struct {
   pthreadmbcinfo mbcinfo;
 } _locale_tstruct,*_locale_t;
 
-#ifndef _TAGLC_ID_DEFINED
-#define _TAGLC_ID_DEFINED
 typedef struct tagLC_ID {
   unsigned short wLanguage;
   unsigned short wCountry;
   unsigned short wCodePage;
 } LC_ID,*LPLC_ID;
-#endif /* _TAGLC_ID_DEFINED */
 
 #ifndef __crt_typefix
 #define __crt_typefix(ctype)

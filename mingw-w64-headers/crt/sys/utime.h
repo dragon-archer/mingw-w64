@@ -14,9 +14,6 @@
 
 _CRT_BEGIN_C_HEADER
 
-#ifndef _UTIMBUF_DEFINED
-#define _UTIMBUF_DEFINED
-
   struct _utimbuf {
     time_t actime;
     time_t modtime;
@@ -42,7 +39,6 @@ _CRT_BEGIN_C_HEADER
     __time32_t actime;
     __time32_t modtime;
   };
-#endif
 #endif
 
   _CRTIMP int __cdecl _utime32(const char *_Filename,struct __utimbuf32 *_Time);
