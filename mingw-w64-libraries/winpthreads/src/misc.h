@@ -30,6 +30,7 @@
 #endif
 
 #include <pthread.h>
+#include <pthread_time.h>
 #include <semaphore.h>
 
 #define WIN32_LEAN_AND_MEAN
