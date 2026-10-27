@@ -28,9 +28,7 @@
 #define __USE_MINGW_SETJMP_NON_SEH
 #endif
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
+#include "misc.h"
 
 #include <malloc.h>
 #include <signal.h>

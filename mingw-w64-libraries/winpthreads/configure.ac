@@ -6,7 +6,6 @@ AC_INIT([mingw-w64-winpthreads], [1.0], [mingw-w64-public@lists.sf.net])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_SRCDIR([src/spinlock.c])
 AC_CONFIG_MACRO_DIR([m4])
-AC_CONFIG_HEADERS([config.h])
 
 AM_INIT_AUTOMAKE([foreign subdir-objects])
 AM_MAINTAINER_MODE
@@ -53,15 +52,6 @@ LT_LANG([Windows Resource])
 # Checks for typedefs, structures, and compiler characteristics.
 
 # Checks for library functions.
-
-# config.h
-AH_BOTTOM(
-[#ifdef DLL_EXPORT
-#define WINPTHREAD_API __declspec(dllexport)
-#else
-#define WINPTHREAD_API
-#endif]dnl
-)
 
 AC_CONFIG_FILES([Makefile tests/Makefile])
 AC_OUTPUT

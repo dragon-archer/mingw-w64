@@ -25,9 +25,7 @@
  * 22-9-2010 Partly based on the ACE framework implementation.
  */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
+#include "misc.h"
 
 #include <malloc.h>
 #include <stdio.h>

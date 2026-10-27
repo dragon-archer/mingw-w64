@@ -23,7 +23,15 @@
 #ifndef WIN_PTHREADS_MISC_H
 #define WIN_PTHREADS_MISC_H
 
-#include <sdkddkver.h>
+#ifdef DLL_EXPORT
+#define WINPTHREAD_API __declspec(dllexport)
+#else
+#define WINPTHREAD_API
+#endif
+
+
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
 
 /**
  * Windows NT 3.1
