@@ -20,23 +20,18 @@
    DEALINGS IN THE SOFTWARE.
 */
 
+#define WINPTHREAD_TIME_DECL WINPTHREAD_API
+
 #include "misc.h"
+
+#include "winpthreads-time.h"
+#include "thread.h" /* _pthread_delay_np_ms */
 
 #include <assert.h>
 #include <errno.h>
 #include <stdint.h>
 #include <time.h>
 
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-
-#define WINPTHREAD_TIME_DECL WINPTHREAD_API
-
-/* public header files */
-#include "pthread.h"
-/* internal header files */
-#include "thread.h"           /* _pthread_delay_np_ms */
-#include "winpthreads-time.h"
 
 /**
  * File Summary:

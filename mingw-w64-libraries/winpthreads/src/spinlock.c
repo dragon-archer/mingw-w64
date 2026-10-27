@@ -22,15 +22,7 @@
 
 #include "misc.h"
 
-#include <stdlib.h>
-
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-
-/* public header files */
-#include "pthread.h"
-/* internal header files */
-#include "misc.h"
+#include <stdlib.h> /* calloc, free */
 
 /**
  * Reference:

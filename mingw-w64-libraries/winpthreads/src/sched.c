@@ -22,15 +22,9 @@
 
 #include "misc.h"
 
-#include <stdio.h>
+#include "thread.h" /* _pthread_v, __pth_gpointer_locked */
 
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-
-/* public header files */
-#include "pthread.h"
-/* internal header files */
-#include "thread.h"
+#include <string.h> /* memcpy */
 
 int sched_get_priority_min(int pol)
 {

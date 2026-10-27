@@ -22,21 +22,12 @@
 
 #include "misc.h"
 
-#include <malloc.h>
-#include <stdio.h>
-
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-
-/* public header files */
-#include "pthread.h"
-#include "semaphore.h"
-/* internal header files */
 #include "sem.h"
-#include "thread.h"
-#include "winpthreads-time.h"
+#include "winpthreads-time.h" /* winpthreads_wait_time_ms */
 
-int do_sema_b_wait_intern (HANDLE sema, int nointerrupt, DWORD timeout);
+#include <stdlib.h> /* calloc, free */
+
+int do_sema_b_wait_intern (HANDLE sema, int nointerrupt, DWORD timeout); /* cond.c */
 
 static int
 sem_result (int res)

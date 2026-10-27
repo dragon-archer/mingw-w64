@@ -22,13 +22,8 @@
 
 #include "misc.h"
 
-#include <stdlib.h>
+#include <stdlib.h> /* free, malloc */
 
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-
-/* public header files */
-#include "pthread.h"
 /* internal header files */
 #include "winpthreads-time.h"
 

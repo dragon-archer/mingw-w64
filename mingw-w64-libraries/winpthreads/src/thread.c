@@ -28,24 +28,16 @@
 #define __USE_MINGW_SETJMP_NON_SEH
 #endif
 
-#include "misc.h"
-
-#include <malloc.h>
-#include <signal.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <wchar.h>
-
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-
 #define WINPTHREAD_THREAD_DECL WINPTHREAD_API
 
-/* public header files */
-#include "pthread.h"
-/* internal header files */
+#include "misc.h"
+
 #include "thread.h"
-#include "winpthreads-time.h"
+#include "winpthreads-time.h" /* winpthreads_timespec_ms */
+
+#include <signal.h> /* NSIG, SIGINT */
+#include <stdio.h> /* fprintf, size_t, snprintf, stderr */
+#include <stdlib.h> /* calloc, free, malloc, realloc */
 
 static _pthread_v *__pthread_self_lite (void);
 

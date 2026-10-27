@@ -21,20 +21,14 @@
    DEALINGS IN THE SOFTWARE.
 */
 
-#include "misc.h"
-
-#include <limits.h>
-#include <stdlib.h>
-
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-
 #define WINPTHREAD_MUTEX_DECL WINPTHREAD_API
 
-/* public header files */
-#include "pthread.h"
-/* internal header files */
+#include "misc.h"
+
 #include "winpthreads-time.h"
+
+#include <limits.h> /* UINT_MAX */
+#include <stdlib.h> /* free, malloc */
 
 /**
  * Reference:

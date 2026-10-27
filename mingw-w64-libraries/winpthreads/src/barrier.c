@@ -22,18 +22,11 @@
 
 #include "misc.h"
 
-#include <assert.h>
-#include <malloc.h>
-#include <stdio.h>
-
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-
-/* public header files */
-#include "pthread.h"
-#include "semaphore.h"
-/* internal header files */
 #include "barrier.h"
+
+#include <assert.h>
+#include <stdlib.h> /* calloc, free */
+#include <string.h> /* memcpy */
 
 static pthread_spinlock_t barrier_global = PTHREAD_SPINLOCK_INITIALIZER;
 
