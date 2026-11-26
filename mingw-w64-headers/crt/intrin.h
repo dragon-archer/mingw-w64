@@ -349,6 +349,8 @@ _CRT_BEGIN_C_HEADER
     __MACHINEX86(__m64 _mm_setr_pi32(int,int))
     __MACHINEX86(__m64 _mm_setr_pi16(short,short,short,short))
     __MACHINEX86(__m64 _mm_setr_pi8(char,char,char,char,char,char,char,char))
+    __MACHINEX86(__m64 _mm_add_si64(__m64,__m64))
+    __MACHINEX86(__m64 _mm_sub_si64(__m64,__m64))
 #endif
 #if !defined(__GNUC__) || (!defined(__SSE__) && !defined(__MINGW_FORCE_SYS_INTRINS))
 #pragma push_macro ("_m_pextrw")
@@ -374,8 +376,7 @@ _CRT_BEGIN_C_HEADER
     __MACHINEX86(__m64 _m_pavgb(__m64,__m64))
     __MACHINEX86(__m64 _m_pavgw(__m64,__m64))
     __MACHINEX86(__m64 _m_psadbw(__m64,__m64))
-#endif
-#if !defined(__GNUC__) || (!defined(__SSE__) && !defined(__MINGW_FORCE_SYS_INTRINS))
+
     __MACHINEX86_ANY(__m128 _mm_add_ss(__m128,__m128))
     __MACHINEX86_ANY(__m128 _mm_add_ps(__m128,__m128))
     __MACHINEX86_ANY(__m128 _mm_sub_ss(__m128,__m128))
@@ -475,6 +476,7 @@ _CRT_BEGIN_C_HEADER
     __MACHINEX86_ANY(void _mm_setcsr(unsigned int))
     __MACHINEX86_ANY(__m128 _mm_movelh_ps(__m128,__m128))
     __MACHINEX86_ANY(__m128 _mm_movehl_ps(__m128,__m128))
+    __MACHINEX86_ANY(void _mm_pause(void))
 #endif
 #if !defined(__GNUC__) || (!defined(__3dNOW__) && !defined(__MINGW_FORCE_SYS_INTRINS))
     __MACHINEX86(__m64 _m_from_float(float))
@@ -605,13 +607,6 @@ _CRT_BEGIN_C_HEADER
     __MACHINEX86_ANY(__m128i _mm_add_epi8(__m128i,__m128i))
     __MACHINEX86_ANY(__m128i _mm_add_epi16(__m128i,__m128i))
     __MACHINEX86_ANY(__m128i _mm_add_epi32(__m128i,__m128i))
-#endif
-
-#if !defined(__GNUC__) || (!defined(__MMX__) && !defined(__MINGW_FORCE_SYS_INTRINS))
-    __MACHINEX86(__m64 _mm_add_si64(__m64,__m64))
-#endif
-
-#if !defined(__GNUC__) || (!defined(__SSE2__) && !defined(__MINGW_FORCE_SYS_INTRINS))
     __MACHINEX86_ANY(__m128i _mm_add_epi64(__m128i,__m128i))
     __MACHINEX86_ANY(__m128i _mm_adds_epi8(__m128i,__m128i))
     __MACHINEX86_ANY(__m128i _mm_adds_epi16(__m128i,__m128i))
@@ -633,11 +628,6 @@ _CRT_BEGIN_C_HEADER
     __MACHINEX86_ANY(__m128i _mm_sub_epi8(__m128i,__m128i))
     __MACHINEX86_ANY(__m128i _mm_sub_epi16(__m128i,__m128i))
     __MACHINEX86_ANY(__m128i _mm_sub_epi32(__m128i,__m128i))
-#endif
-#if !defined(__GNUC__) || (!defined(__MMX__) && !defined(__MINGW_FORCE_SYS_INTRINS))
-    __MACHINEX86(__m64 _mm_sub_si64(__m64,__m64))
-#endif
-#if !defined(__GNUC__) || (!defined(__SSE2__) && !defined(__MINGW_FORCE_SYS_INTRINS))
     __MACHINEX86_ANY(__m128i _mm_sub_epi64(__m128i,__m128i))
     __MACHINEX86_ANY(__m128i _mm_subs_epi8(__m128i,__m128i))
     __MACHINEX86_ANY(__m128i _mm_subs_epi16(__m128i,__m128i))
@@ -723,10 +713,18 @@ _CRT_BEGIN_C_HEADER
     __MACHINEX86_ANY(void _mm_lfence(void))
     __MACHINEX86_ANY(void _mm_mfence(void))
     __MACHINEX86_ANY(void _mm_stream_si32(int*,int))
+    __MACHINEX64(__MINGW_EXTENSION __m128i _mm_set_epi64x(__int64 i1,__int64 i0))
+    __MACHINEX64(__MINGW_EXTENSION __m128i _mm_set1_epi64x(__int64 i))
+    __MACHINEX64(__MINGW_EXTENSION __int64 _mm_cvtsd_si64x(__m128d a))
+    __MACHINEX64(__MINGW_EXTENSION __m128d _mm_cvtsi64x_sd(__m128d a,__int64 b))
+    __MACHINEX64(__MINGW_EXTENSION __m128 _mm_cvtsi64x_ss(__m128 a,__int64 b))
+    __MACHINEX64(__MINGW_EXTENSION __int64 _mm_cvtss_si64x(__m128 a))
+    __MACHINEX64(__MINGW_EXTENSION __int64 _mm_cvttsd_si64x(__m128d a))
+    __MACHINEX64(__MINGW_EXTENSION __int64 _mm_cvttss_si64x(__m128 a))
+    __MACHINEX64(__MINGW_EXTENSION __m128i _mm_cvtsi64x_si128(__int64 a))
+    __MACHINEX64(__MINGW_EXTENSION __int64 _mm_cvtsi128_si64x(__m128i a))
 #endif
-#if !defined(__GNUC__) || (!defined(__SSE__) && !defined(__MINGW_FORCE_SYS_INTRINS))
-    __MACHINEX86_ANY(void _mm_pause(void))
-#endif
+
 #if !defined(__GNUC__) || (!defined(__SSE3__) && !defined(__MINGW_FORCE_SYS_INTRINS))
     __MACHINEX86_ANY(__m128 _mm_addsub_ps(__m128,__m128))
     __MACHINEX86_ANY(__m128d _mm_addsub_pd(__m128d,__m128d))
@@ -797,18 +795,7 @@ _CRT_BEGIN_C_HEADER
     /* __MACHINEX86_ANY(void __outwordstring(unsigned short Port,unsigned short *Buffer,unsigned __LONG32 Count)) moved to psdk_inc/intrin-impl.h */
     /* __MACHINEX86_ANY(void __outdwordstring(unsigned short Port,unsigned __LONG32 *Buffer,unsigned __LONG32 Count)) moved to psdk_inc/intrin-impl.h */
     __MACHINEX86_ANY(unsigned int __getcallerseflags())
-#if !defined(__GNUC__) || (!defined(__SSE2__) && !defined(__MINGW_FORCE_SYS_INTRINS))
-    __MACHINEX64(__MINGW_EXTENSION __m128i _mm_set_epi64x(__int64 i1,__int64 i0))
-    __MACHINEX64(__MINGW_EXTENSION __m128i _mm_set1_epi64x(__int64 i))
-    __MACHINEX64(__MINGW_EXTENSION __int64 _mm_cvtsd_si64x(__m128d a))
-    __MACHINEX64(__MINGW_EXTENSION __m128d _mm_cvtsi64x_sd(__m128d a,__int64 b))
-    __MACHINEX64(__MINGW_EXTENSION __m128 _mm_cvtsi64x_ss(__m128 a,__int64 b))
-    __MACHINEX64(__MINGW_EXTENSION __int64 _mm_cvtss_si64x(__m128 a))
-    __MACHINEX64(__MINGW_EXTENSION __int64 _mm_cvttsd_si64x(__m128d a))
-    __MACHINEX64(__MINGW_EXTENSION __int64 _mm_cvttss_si64x(__m128 a))
-    __MACHINEX64(__MINGW_EXTENSION __m128i _mm_cvtsi64x_si128(__int64 a))
-    __MACHINEX64(__MINGW_EXTENSION __int64 _mm_cvtsi128_si64x(__m128i a))
-#endif
+
     __MACHINEX64(__MINGW_EXTENSION void _mm_stream_si64x(__int64 *,__int64))
     /* __MACHINEX86_ANY(void __stosb(unsigned char *,unsigned char,size_t)) moved to psdk_inc/intrin-impl.h */
     /* __MACHINEX86_ANY(void __stosw(unsigned short *,unsigned short,size_t)) moved to psdk_inc/intrin-impl.h */
