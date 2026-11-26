@@ -128,8 +128,6 @@ _CRT_END_C_HEADER
 
 #endif
 
-
-#define __MACHINECE __MACHINE
 #define __MACHINEX86 __MACHINE
 #define __MACHINEX64 __MACHINE
 #define __MACHINEX86_ANY __MACHINE
@@ -170,11 +168,6 @@ _CRT_END_C_HEADER
 #define __MACHINEARM_ANY __MACHINEZ
 #endif
 
-#if !defined(_WIN32_WCE)
-#undef __MACHINECE
-#define __MACHINECE __MACHINEZ
-#endif
-
 _CRT_BEGIN_C_HEADER
 
 #ifndef __CYGWIN__
@@ -184,7 +177,6 @@ _CRT_BEGIN_C_HEADER
     __MACHINE(int __cdecl abs(int))
     __MACHINEX64(double ceil(double))
     __MACHINE(long __cdecl labs(long))
-    __MACHINECE(_CONST_RETURN void *__cdecl memchr(const void *,int,size_t))
     __MACHINE(int __cdecl memcmp(const void *,const void *,size_t))
     __MACHINE(void *__cdecl memcpy(void * __restrict__ ,const void * __restrict__ ,size_t))
     __MACHINE(void *__cdecl memset(void *,int,size_t))
@@ -192,8 +184,6 @@ _CRT_BEGIN_C_HEADER
     __MACHINE(int __cdecl strcmp(const char *,const char *))
     __MACHINE(char *__cdecl strcpy(char * __restrict__ ,const char * __restrict__ ))
     __MACHINE(size_t __cdecl strlen(const char *))
-    __MACHINECE(int __cdecl strncmp(const char *,const char *,size_t))
-    __MACHINECE(char *__cdecl strncpy(char * __restrict__ ,const char * __restrict__ ,size_t))
     __MACHINEX86_ANY(wchar_t *__cdecl wcscat(wchar_t * __restrict__ ,const wchar_t * __restrict__ ))
     __MACHINEX86_ANY(int __cdecl wcscmp(const wchar_t *,const wchar_t *))
     __MACHINEX86_ANY(wchar_t *__cdecl wcscpy(wchar_t * __restrict__ ,const wchar_t * __restrict__ ))
@@ -206,32 +196,15 @@ _CRT_BEGIN_C_HEADER
 #else
     __MACHINE(void *__cdecl _alloca(size_t))
 #endif
-    __MACHINECE(__MINGW_EXTENSION __int64 __cdecl _abs64(__int64))
     __MACHINE(unsigned short __cdecl _byteswap_ushort(unsigned short value))
     __MACHINE(unsigned __LONG32 __cdecl _byteswap_ulong(unsigned __LONG32 value))
     __MACHINE(__MINGW_EXTENSION unsigned __int64 __cdecl _byteswap_uint64(unsigned __int64 value))
-    __MACHINECE(void __CacheRelease(void *))
-    __MACHINECE(void __CacheWriteback(void *))
-    __MACHINECE(double ceil(double))
-    __MACHINECE(__MINGW_EXTENSION double _CopyDoubleFromInt64(__int64))
-    __MACHINECE(float _CopyFloatFromInt32(__int32))
-    __MACHINECE(__MINGW_EXTENSION __int64 _CopyInt64FromDouble(double))
-    __MACHINECE(__int32 _CopyInt32FromFloat(float))
-    __MACHINECE(unsigned _CountLeadingOnes(long))
-    __MACHINECE(__MINGW_EXTENSION unsigned _CountLeadingOnes64(__int64))
-    __MACHINECE(unsigned _CountLeadingSigns(long))
-    __MACHINECE(__MINGW_EXTENSION unsigned _CountLeadingSigns64(__int64))
-    __MACHINECE(unsigned _CountLeadingZeros(long))
-    __MACHINECE(__MINGW_EXTENSION unsigned _CountLeadingZeros64(__int64))
-    __MACHINECE(unsigned _CountOneBits(long))
-    __MACHINECE(__MINGW_EXTENSION unsigned _CountOneBits64(__int64))
     __MACHINE(void __cdecl __debugbreak(void))
     __MACHINEX86_ANY(void __cdecl _disable(void))
     __MACHINEX86_ANY(__MINGW_EXTENSION __int64 __emul(int,int))
     __MACHINEX86_ANY(__MINGW_EXTENSION unsigned __int64 __emulu(unsigned int,unsigned int))
     __MACHINEX86_ANY(void __cdecl _enable(void))
     __MACHINE(void __cdecl __MINGW_ATTRIB_NORETURN __fastfail(unsigned int code))
-    __MACHINECE(void __ICacheRefresh(void *))
     /* __MACHINEX86_ANY(__LONG32 __cdecl _InterlockedDecrement(__LONG32 volatile *)) moved to psdk_inc/intrin-impl.h */
     /* __MACHINEX64(__MINGW_EXTENSION __int64 _InterlockedDecrement64(__int64 volatile *)) moved to psdk_inc/intrin-impl.h */
     /* __MACHINEX86_ANY(__LONG32 _InterlockedExchange(__LONG32 volatile *,__LONG32)) moved to psdk_inc/intrin-impl.h */
@@ -267,31 +240,22 @@ _CRT_BEGIN_C_HEADER
     __MACHINEX86_ANY(unsigned __LONG32 __cdecl inpd(unsigned short))
     __MACHINEX86_ANY(unsigned short __cdecl _inpw(unsigned short))
     __MACHINEX86_ANY(unsigned short __cdecl inpw(unsigned short))
-    __MACHINECE(int _isnan(double))
-    __MACHINECE(int _isnanf(float))
-    __MACHINECE(int _isunordered(double,double))
-    __MACHINECE(int _isunorderedf(float,float))
 
     /* __MACHINE(unsigned long __cdecl _lrotl(unsigned long,int)) moved to psdk_inc/intrin-impl.h */
     /* __MACHINE(unsigned long __cdecl _lrotr(unsigned long,int)) moved to psdk_inc/intrin-impl.h */
 
     __MACHINEX86_ANY(__MINGW_EXTENSION unsigned __int64 __ll_lshift(unsigned __int64,int))
     __MACHINEX86_ANY(__MINGW_EXTENSION __int64 __ll_rshift(__int64,int))
-    __MACHINECE(long _MulHigh(long,long))
-    __MACHINECE(unsigned long _MulUnsignedHigh (unsigned long,unsigned long))
     __MACHINEX86_ANY(int __cdecl _outp(unsigned short,int))
     __MACHINEX86_ANY(int __cdecl outp(unsigned short,int))
     __MACHINEX86_ANY(unsigned __LONG32 __cdecl _outpd(unsigned short,unsigned __LONG32))
     __MACHINEX86_ANY(unsigned __LONG32 __cdecl outpd(unsigned short,unsigned __LONG32))
     __MACHINEX86_ANY(unsigned short __cdecl _outpw(unsigned short,unsigned short))
     __MACHINEX86_ANY(unsigned short __cdecl outpw(unsigned short,unsigned short))
-    __MACHINECE(void __cdecl __prefetch(unsigned long *addr))
     __MACHINEARM_ANY(void __cdecl __prefetch(const void *addr))
     __MACHINEARM32(int _ReadStatusReg(int))
-    /* __MACHINECE(void _ReadWriteBarrier(void)) moved to psdk_inc/intrin-impl.h */
     __MACHINEX86_ANY(void *_ReturnAddress(void))
     __MACHINEARM32(void *_ReturnAddress(void))
-    __MACHINECE(void *_ReturnAddress(void))
 #pragma push_macro ("_rotl")
 #undef _rotl
     __MACHINE(unsigned int __cdecl _rotl(unsigned int,int))
@@ -315,16 +279,7 @@ _CRT_BEGIN_C_HEADER
     __MACHINE(char *__cdecl _strset(char *,int))
     __MACHINE(char *__cdecl strset(char *,int))
     __MACHINEARM32(int __swi(unsigned,...))
-    __MACHINECE(int __trap(int,...))
     __MACHINEX86_ANY(__MINGW_EXTENSION unsigned __int64 __ull_rshift(unsigned __int64,int))
-    __MACHINECE(wchar_t *__cdecl wcscat(wchar_t * __restrict__ ,const wchar_t * __restrict__ ))
-    __MACHINECE(int __cdecl wcscmp(const wchar_t *,const wchar_t *))
-    __MACHINECE(wchar_t *__cdecl wcscpy(wchar_t * __restrict__ ,const wchar_t * __restrict__ ))
-    __MACHINECE(size_t __cdecl wcslen(const wchar_t *))
-    __MACHINECE(int __cdecl wcsncmp(const wchar_t *,const wchar_t *,size_t))
-    __MACHINECE(wchar_t *__cdecl wcsncpy(wchar_t * __restrict__ ,const wchar_t * __restrict__ ,size_t))
-    __MACHINECE(wchar_t *__cdecl _wcsset(wchar_t *,wchar_t))
-    /* __MACHINECE(void _WriteBarrier(void)) moved to psdk_inc/intrin-impl.h */
     __MACHINEARM32(void _WriteStatusReg(int,int,int))
     __MACHINEX86_ANY(void *_AddressOfReturnAddress(void))
 
